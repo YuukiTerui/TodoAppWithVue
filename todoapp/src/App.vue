@@ -7,17 +7,11 @@
     </div>
   </header>
 
-  <main>
+  <main class="main-content">
+      <todo-add @add-new-todo="addNewTodo"></todo-add>
 
-    <todo-add @add-new-todo="addNewTodo"></todo-add>
-    
-    <todo-task v-for="[id, td] in todoList" 
-      :key="id" 
-      :id="td.id" 
-      :title="td.title" 
-      :note="td.note" 
-      :limit="td.limit">
-    </todo-task>
+      <todo-task v-for="[id, td] in todoList" :key="id" :id="td.id" :title="td.title" :note="td.note" :limit="td.limit">
+      </todo-task>
   </main>
 </template>
 
@@ -40,19 +34,22 @@ let idcnt = todoListInit.size;
 const todoList = ref(todoListInit);
 
 const addNewTodo = (title: string, note: string, limit: string) => {
-  idcnt++;  
-  todoList.value.set(idcnt, {id: idcnt, title: title, note:note, limit: limit});
+  idcnt++;
+  todoList.value.set(idcnt, { id: idcnt, title: title, note: note, limit: limit });
 }
 </script>
 
 
 <style scoped>
+.main-content {
+  margin: 10px 20%;
+  border: black 1px solid;
+}
 .box {
-    border: green 1px solid;
-    margin: 10px 20%;
-    font-family: "Kokoro", "Vollkorn";
-    display: flex;
-    place-items: center;
+  border: green 1px solid;
+  font-family: "Kokoro", "Vollkorn";
+  display: flex;
+  place-items: center;
 }
 
 header {

@@ -1,9 +1,9 @@
 <template>
     <div class="box todo-add">
-        <input type="text" class="todo-add-item" v-model="title" placeholder="タイトル">
-        <textarea class="todo-add-item" v-model="note" rows="5" cols="22" placeholder="メモ"></textarea>
-        <input type="date" class="todo-add-item" v-model="limit">
-        <button class="todo-add-item" @click="onSubmitClick">追加する</button>
+        <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル">
+        <textarea id="memo" class="todo-add-item" v-model="note"  placeholder="メモ"></textarea>
+        <input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限">
+        <button id="add-button" class="todo-add-item" @click="onSubmitClick">追加する</button>
     </div>
 </template>
 
@@ -31,10 +31,33 @@ const onSubmitClick = () => {
     padding: 10px 0;
     flex-direction: column;
     width: auto;
+    height: 200px;
 }
 
 .todo-add-item {
     margin: 3px 0;
-    width: 60%;
+    width: 80%;
 }
+
+#memo {
+    height: 50%;
+}
+
+#add-button {
+    position: relative;
+}
+
+input[type=date]::-webkit-calendar-picker-indicator {
+
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type=date]::-webkit-clear-button {
+    -webkit-appearance: none;
+}
+
 </style>
