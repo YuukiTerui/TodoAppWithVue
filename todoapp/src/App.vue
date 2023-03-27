@@ -8,6 +8,9 @@
   </header>
 
   <main>
+
+    <todo-add @add-new-todo="addNewTodo"></todo-add>
+    
     <todo-task v-for="[id, td] in todoList" 
       :key="id" 
       :id="td.id" 
@@ -22,6 +25,8 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import TodoTask from "./components/TodoTask.vue";
+import TodoAdd from "./components/TodoAdd.vue";
+
 interface todo {
   id: number;
   title: string;
@@ -31,13 +36,25 @@ interface todo {
 const todoListInit = new Map<number, todo>();
 todoListInit.set(1, { id: 1, title: "test1", note: "メモ1", limit: new Date().toDateString() });
 todoListInit.set(2, { id: 2, title: "test2", note: "メモ2", limit: new Date().toDateString() });
-
 let idcnt = todoListInit.size;
 const todoList = ref(todoListInit);
+
+const addNewTodo = (title: string, note: string, limit: string) => {
+  idcnt++;  
+  todoList.value.set(idcnt, {id: idcnt, title: title, note:note, limit: limit});
+}
 </script>
 
 
 <style scoped>
+.box {
+    border: green 1px solid;
+    margin: 10px 20%;
+    font-family: "Kokoro", "Vollkorn";
+    display: flex;
+    place-items: center;
+}
+
 header {
   line-height: 1.5;
 }
