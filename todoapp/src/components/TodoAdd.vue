@@ -1,6 +1,6 @@
 <template>
     <div class="box todo-add">
-        <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル">
+        <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル" maxlength="32">
         <textarea id="memo" class="todo-add-item" v-model="note"  placeholder="メモ"></textarea>
         <input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限">
         <button id="add-button" class="todo-add-item" @click="onSubmitClick">追加する</button>
