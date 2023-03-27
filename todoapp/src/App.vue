@@ -1,21 +1,21 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg"/>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+
+      <h1>TodoAppWithVue</h1>
     </div>
   </header>
 
   <main>
-    <TheWelcome />
   </main>
 </template>
+
+
+<script setup lang="ts">
+
+</script>
+
 
 <style scoped>
 header {
@@ -25,6 +25,8 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+  width: 64px;
+  height: 64px;
 }
 
 @media (min-width: 1024px) {
