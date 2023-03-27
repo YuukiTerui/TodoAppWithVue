@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg"/>
+    <img alt="Vue logo" class="logo" src="./assets/logo.svg" />
     <div class="wrapper">
 
       <h1>TodoAppWithVue</h1>
@@ -8,12 +8,32 @@
   </header>
 
   <main>
+    <todo-task v-for="[id, td] in todoList" 
+      :key="id" 
+      :id="td.id" 
+      :title="td.title" 
+      :note="td.note" 
+      :limit="td.limit">
+    </todo-task>
   </main>
 </template>
 
 
 <script setup lang="ts">
+import { ref } from "vue";
+import TodoTask from "./components/TodoTask.vue";
+interface todo {
+  id: number;
+  title: string;
+  note: string;
+  limit: string
+}
+const todoListInit = new Map<number, todo>();
+todoListInit.set(1, { id: 1, title: "test1", note: "メモ1", limit: new Date().toDateString() });
+todoListInit.set(2, { id: 2, title: "test2", note: "メモ2", limit: new Date().toDateString() });
 
+let idcnt = todoListInit.size;
+const todoList = ref(todoListInit);
 </script>
 
 
@@ -29,7 +49,7 @@ header {
   height: 64px;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
   header {
     display: flex;
     place-items: center;
