@@ -75,11 +75,11 @@ const deleteButtonClicked = () => {
 
 
 <style scoped>
-
 .box {
     width: 100%;
 
 }
+
 .todo-info {
     padding-left: 10px;
     width: 80%;
