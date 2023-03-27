@@ -10,7 +10,13 @@
   <main class="main-content">
       <todo-add @add-new-todo="addNewTodo"></todo-add>
 
-      <todo-task v-for="[id, td] in todoList" :key="id" :id="td.id" :title="td.title" :note="td.note" :limit="td.limit">
+      <todo-task v-for="[id, td] in todoList" 
+        :key="id" 
+        :id="td.id" 
+        :title="td.title" 
+        :note="td.note" 
+        :limit="td.limit"
+        @delete-button-clicked="deleteTodo">
       </todo-task>
   </main>
 </template>
@@ -36,6 +42,10 @@ const todoList = ref(todoListInit);
 const addNewTodo = (title: string, note: string, limit: string) => {
   idcnt++;
   todoList.value.set(idcnt, { id: idcnt, title: title, note: note, limit: limit });
+}
+
+const deleteTodo = (id: number, title: string) => {
+  todoList.value.delete(id);
 }
 </script>
 

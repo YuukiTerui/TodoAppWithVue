@@ -16,6 +16,9 @@
                 {{ localLimit }}
             </div>
         </div>
+        <div class="todo-edit">
+            <button type="button" @click="deleteButtonClicked">削除</button>
+        </div>
     </section>
 </template>
 
@@ -54,6 +57,14 @@ const localLimit = computed(() => {
     return localLimit;
 })
 
+interface Emits {
+    (event: "deleteButtonClicked", id: number, title: string): void
+}
+const emit = defineEmits<Emits>();
+
+const deleteButtonClicked = () => {
+    emit("deleteButtonClicked", props.id, props.title);
+}
 
 </script>
 
@@ -62,5 +73,9 @@ const localLimit = computed(() => {
 
 .todo-info {
     padding-left: 10px;
+}
+
+.todo-edit {
+    margin: 0 5% 0 auto;
 }
 </style>
