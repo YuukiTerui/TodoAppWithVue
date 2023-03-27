@@ -10,6 +10,8 @@
   <main class="main-content">
       <todo-add @add-new-todo="addNewTodo"></todo-add>
 
+      <br>
+      
       <todo-task v-for="[id, td] in todoList" 
         :key="id" 
         :id="td.id" 
@@ -45,7 +47,9 @@ const addNewTodo = (title: string, note: string, limit: string) => {
 }
 
 const deleteTodo = (id: number, title: string) => {
-  todoList.value.delete(id);
+  if (confirm(title + "を削除しますか？")) {
+    todoList.value.delete(id);
+  }
 }
 </script>
 
