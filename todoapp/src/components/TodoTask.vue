@@ -4,19 +4,18 @@
             <div id="id" hidden>
                 {{ id }}
             </div>
-            <details>
+            <details width="100%">
                 <summary id="title">
                     {{ localTitle }}
                 </summary>
-                <div id="note" v-html="localNote">
-                </div>
+                <div id="note" v-html="localNote"></div>
             </details>
             <div id="limit">
                 {{ localLimit }}
             </div>
         </div>
         <div class="todo-edit">
-            <button type="button" @click="deleteButtonClicked">削除</button>
+            <button type="button" id="delete-btn" @click="deleteButtonClicked">削除</button>
         </div>
     </section>
 </template>
@@ -77,11 +76,25 @@ const deleteButtonClicked = () => {
 
 <style scoped>
 
+.box {
+    width: 100%;
+
+}
 .todo-info {
     padding-left: 10px;
+    width: 80%;
 }
 
 .todo-edit {
-    margin: 0 5% 0 auto;
+    width: 20%;
+}
+
+#note {
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+#delete-btn {
+    margin: 0 0 0 auto;
 }
 </style>
