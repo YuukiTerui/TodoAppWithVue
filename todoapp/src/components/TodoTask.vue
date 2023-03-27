@@ -8,8 +8,7 @@
                 <summary id="title">
                     {{ localTitle }}
                 </summary>
-                <div id="note">
-                    {{ note }}
+                <div id="note" v-html="localNote">
                 </div>
             </details>
             <div id="limit">
@@ -47,6 +46,13 @@ const localTitle = computed(() => {
         localTitle = "無題";
     }
     return localTitle;
+});
+
+const localNote = computed(() => {
+    let localNote = props.note;
+    localNote = localNote.replace(/\n/g, "<br>");
+    console.log(localNote)
+    return localNote;
 });
 
 const localLimit = computed(() => {
