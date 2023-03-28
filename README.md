@@ -16,7 +16,7 @@ Vue.js - The Progressive JavaScript Framework
 √ Add ESLint for code quality? ... No / Yes
 √ Add Prettier for code formatting? ... No / Yes
 
-Scaffolding project in K:\Documents\GitHub\TodoAppWithVue\todoapp...
+Scaffolding project in ./todoapp...
 
 Done. Now run:
 
