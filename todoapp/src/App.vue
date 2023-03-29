@@ -21,6 +21,14 @@
         @delete-button-clicked="deleteTodo">
       </todo-task>
   </main>
+
+  <footer>
+    <base-button>BaseButton</base-button>
+    <base-button type="add" size="large">追加する</base-button>
+    <base-button type="delete" size="small">削除</base-button>
+    <base-button :disabled="true">追加できない</base-button>
+    <base-button :loading="true">ローディング</base-button>
+  </footer>
 </template>
 
 
@@ -29,6 +37,7 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 import TodoTask from "./components/TodoTask.vue";
 import TodoAdd from "./components/TodoAdd.vue";
+import BaseButton from "./components/BaseButton.vue";
 
 interface todo {
   id: number;
@@ -97,5 +106,14 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  padding: 5%;
+  background-color: bisque;
+  position: absolute;
+  bottom: 0;
 }
 </style>
