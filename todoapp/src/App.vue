@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import type { Ref } from "vue";
 import TodoTask from "./components/TodoTask.vue";
 import TodoAdd from "./components/TodoAdd.vue";
 
@@ -41,9 +42,12 @@ todoListInit.set(2, { id: 2, title: "test2", note: "メモ2", limit: new Date().
 let idcnt = todoListInit.size;
 const todoList = ref(todoListInit);
 
-const addNewTodo = (title: string, note: string, limit: string) => {
+const addNewTodo = (title: Ref, note: Ref, limit: Ref) => {
   idcnt++;
-  todoList.value.set(idcnt, { id: idcnt, title: title, note: note, limit: limit });
+  todoList.value.set(idcnt, { id: idcnt, title: title.value, note: note.value, limit: limit.value });
+  title.value = "";
+  note.value = "";
+  limit.value = "";
 }
 
 const deleteTodo = (id: number, title: string) => {

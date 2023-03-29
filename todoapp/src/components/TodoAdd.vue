@@ -9,9 +9,10 @@
 
 
 <script setup lang="ts">
-import { ref, computed, type Ref } from "vue";
+import { ref, computed } from "vue";
+import type { Ref } from "vue";
 interface Emits {
-    (event: "addNewTodo", title: string, note: string, limit: string): void;
+    (event: "addNewTodo", title: Ref, note: Ref, limit: Ref): void;
 }
 const emit = defineEmits<Emits>();
 
@@ -20,7 +21,7 @@ const note = ref("");
 const limit = ref("");
 
 const onSubmitClick = () => {
-    emit("addNewTodo", title.value, note.value, limit.value);
+    emit("addNewTodo", title, note, limit);
 }
 
 </script>
