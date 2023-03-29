@@ -3,7 +3,7 @@
         <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル" maxlength="32">
         <textarea id="memo" class="todo-add-item" v-model="note" placeholder="メモ"></textarea>
         <input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限">
-        <button id="add-button" class="todo-add-item" @click="onSubmitClick">追加する</button>
+        <button id="add-btn" class="todo-add-item" @click="onSubmitClick">追加する</button>
     </div>
 </template>
 
@@ -48,21 +48,26 @@ const onSubmitClick = () => {
     height: 50%;
 }
 
-#add-button {
+#limit {
     position: relative;
 }
 
-input[type=date]::-webkit-calendar-picker-indicator {
+#add-btn {
+}
 
+#limit::-webkit-calendar-picker-indicator {
+    position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0;
+    cursor: pointer;
+
 }
 
 input[type=date]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
+ 
 input[type=date]::-webkit-clear-button {
     -webkit-appearance: none;
 }
