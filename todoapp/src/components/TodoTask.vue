@@ -6,7 +6,7 @@
             </div>
             <details width="100%">
                 <summary id="title">
-                    {{ localTitle }}
+                    {{ title }}
                 </summary>
                 <div id="note" v-html="localNote"></div>
             </details>
@@ -39,18 +39,14 @@ const props = withDefaults(
         limit: "期限なし"
     }
 )
-const localTitle = computed(() => {
-    let localTitle = props.title;
-    if (localTitle === "") {
-        localTitle = "無題";
-    }
-    return localTitle;
-});
 
 const localNote = computed(() => {
     let localNote = props.note;
-    localNote = localNote.replace(/\n/g, "<br>");
-    console.log(localNote)
+    if (localNote !== "") {
+        localNote = localNote.replace(/\n/g, "<br>");
+    } else {
+        localNote = "---";
+    }
     return localNote;
 });
 

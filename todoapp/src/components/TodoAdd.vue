@@ -21,7 +21,11 @@ const note = ref("");
 const limit = ref("");
 
 const onSubmitClick = () => {
-    emit("addNewTodo", title, note, limit);
+    if (title.value !== "") {
+        emit("addNewTodo", title, note, limit);
+    } else {
+        alert("タイトルは必須です．");
+    }
 }
 
 </script>
