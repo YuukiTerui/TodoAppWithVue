@@ -1,10 +1,7 @@
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" />
-    <div class="wrapper">
-
-      <h1>TodoAppWithVue</h1>
-    </div>
+    <h1 id="title">TodoAppWithVue</h1>
   </header>
 
   <main class="main-content">
@@ -85,11 +82,17 @@ header {
   height: 64px;
 }
 
+#title {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .logo {
   display: block;
-  margin: 0 auto 2rem;
-  width: 64px;
-  height: 64px;
+  margin: 0 auto;
+  width: 48px;
+  height: 48px;
 }
 
 @media (min-width: 800px) {
@@ -103,10 +106,8 @@ header {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  #title {
+    margin: 0 0;
   }
 }
 
