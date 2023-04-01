@@ -1,8 +1,12 @@
 <template>
   <h1>動的コンポーネント</h1>
-  <button @click="switchComp">コンポーネントを切り替える</button>
-
+  <select @change="switchComp">コンポーネントを切り替える
+    <option value="Input">Input</option>
+    <option value="Radio">Radio</option>
+    <option value="Select">Select</option>
+  </select>
   <p>コンポーネント名： {{ currentCompName }}</p>
+  
   <keep-alive>
     <component :is="currentComp" />
   </keep-alive>
@@ -31,4 +35,8 @@ const switchComp = () => {
 </script>
 
 
-<style scoped></style>
+<style scoped>
+.dynamic-component {
+  border: green 1px solid;
+}
+</style>

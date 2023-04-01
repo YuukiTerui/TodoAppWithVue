@@ -1,6 +1,8 @@
 <template>
-    <input type="text" v-model="inputValue">
-    <p>{{ inputValue }}</p>
+    <div class="dynamic-component">
+        <input type="text" v-model="inputValue">
+        <p>{{ inputValue }}</p>
+    </div>
 </template>
 
 
@@ -11,6 +13,4 @@ const inputValue = ref("Hello Vue!");
 </script>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,11 +1,13 @@
 <template>
-    <select v-model="memberTypeSelect">
-        <option value="1">通常会員</option>
-        <option value="2">有料会員</option>
-        <option value="3">非会員</option>
-    </select>
-    <br>
-    <p>選択されたリスト: {{ memberTypeSelect }}</p>
+    <div class="dynamic-component">
+        <select v-model="memberTypeSelect">
+            <option value="1">通常会員</option>
+            <option value="2">有料会員</option>
+            <option value="3">非会員</option>
+        </select>
+        <br>
+        <p>選択されたリスト: {{ memberTypeSelect }}</p>
+    </div>
 </template>
 
 
@@ -16,5 +18,4 @@ const memberTypeSelect = ref(1);
 </script>
 
 
-<style scoped>
-</style>
+<style scoped></style>
