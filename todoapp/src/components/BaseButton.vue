@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="BaseButton" :class="classes" :disabled="disabled || loading" @click="$emit('click')">
+    <button type="button" class="BaseButton" :class="classes" :disabled="disabled || loading">
         <span v-if="loading">読み込み中</span>
         <slot v-else></slot>
     </button>
