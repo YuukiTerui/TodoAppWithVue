@@ -3,7 +3,13 @@
         <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル" maxlength="32">
         <textarea id="memo" class="todo-add-item" v-model="note" placeholder="メモ"></textarea>
         <input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限">
-        <button id="add-btn" class="todo-add-item" @click="onSubmitClick">追加する</button>
+        <base-button type="add" size="middle"
+          class="todo-add-item" 
+          @click="onSubmitClick"
+          :disabled="isDisabled"
+          >
+            追加する
+        </base-button>
     </div>
 </template>
 
@@ -11,6 +17,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
+import BaseButton from "./BaseButton.vue";
 interface Emits {
     (event: "addNewTodo", title: Ref, note: Ref, limit: Ref): void;
 }
@@ -20,8 +27,12 @@ const title = ref("");
 const note = ref("");
 const limit = ref("");
 
+const isDisabled = computed(() => {
+    return title.value === "";
+});
+
 const onSubmitClick = () => {
-    if (title.value !== "") {
+    if (title.value != "") {
         emit("addNewTodo", title, note, limit);
     } else {
         alert("タイトルは必須です．");
@@ -50,9 +61,6 @@ const onSubmitClick = () => {
 
 #limit {
     position: relative;
-}
-
-#add-btn {
 }
 
 #limit::-webkit-calendar-picker-indicator {

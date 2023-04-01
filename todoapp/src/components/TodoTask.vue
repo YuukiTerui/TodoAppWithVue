@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="todo-edit">
-            <button type="button" id="delete-btn" @click="deleteButtonClicked">削除</button>
+            <base-button type="delete" size="small" @click="deleteButtonClicked">削除</base-button>
         </div>
     </section>
 </template>
@@ -23,6 +23,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import BaseButton from "./BaseButton.vue";
 
 interface Props {
     id: number;
