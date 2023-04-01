@@ -1,0 +1,27 @@
+<template>
+    <label>
+        <input type="radio" name="memberType" value="1" v-model="memberType" />
+        通常会員
+    </label>
+    <label>
+        <input type="radio" name="memberType" value="2" v-model="memberType" />
+        有料会員
+    </label>
+    <label>
+        <input type="radio" name="memberType" value="3" v-model="memberType" />
+        非会員
+    </label>
+    <br>
+    <p>選択されたラジオボタン: {{ memberType }}</p>
+</template>
+
+
+<script setup lang="ts">
+import { ref } from "vue";
+
+const memberType = ref(1);
+</script>
+
+
+<style scoped>
+</style>
