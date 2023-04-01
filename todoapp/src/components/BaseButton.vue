@@ -70,6 +70,11 @@ const classes = computed(() => {
     color: aliceblue;
 }
 
+.BaseButton._add:disabled {
+    background-color: rgb(90, 145, 90);
+    color: lightgray;
+}
+
 .BaseButton._delete {
     background-color: olivedrab;
     color: aliceblue;

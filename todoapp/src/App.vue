@@ -26,7 +26,7 @@
     <base-button>BaseButton</base-button>
     <base-button type="add" size="large">追加する</base-button>
     <base-button type="delete" size="small">削除</base-button>
-    <base-button :disabled="true">追加できない</base-button>
+    <base-button type="add" :disabled="true">追加できない</base-button>
     <base-button :loading="true">ローディング</base-button>
   </footer>
 </template>
@@ -80,7 +80,9 @@ const deleteTodo = (id: number, title: string) => {
 }
 
 header {
+  border: green 1px solid;
   line-height: 1.5;
+  height: 64px;
 }
 
 .logo {
