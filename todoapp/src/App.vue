@@ -3,9 +3,9 @@
   <button @click="switchComp">コンポーネントを切り替える</button>
 
   <p>コンポーネント名： {{ currentCompName }}</p>
-  <KeepAlive>
+  <keep-alive>
     <component :is="currentComp" />
-  </KeepAlive>
+  </keep-alive>
 </template>
 
 
@@ -17,9 +17,9 @@ import BaseSelect from "./components/BaseSelect.vue";
 
 const currentComp = ref(BaseInput);
 const currentCompName = ref("Input");
-
+// .vueファイルを読み込んだコンポーネントオブジェクトのデータ型は複雑なので，型の指定は行わない．
 const compList = [BaseInput, BaseRadio, BaseSelect];
-const compNameList = ["Input", "Radio", "Select"];
+const compNameList: string[] = ["Input", "Radio", "Select"];
 
 let currentCompIdx = 0;
 const switchComp = () => {
