@@ -38,9 +38,20 @@ const classes = computed(() => {
     height: 32px;
     width: auto;
     padding: 0 16px;
-    border: none;
+    border: gray solid 1px;
+    border-radius: 2rem;
     font-size: 12;
+    opacity: .8;
+    cursor: pointer;
+}
 
+.BaseButton:hover {
+    border-color: black;
+    opacity: 1;
+}
+
+.BaseButton:disabled {
+    cursor: not-allowed;
 }
 
 /* type */
