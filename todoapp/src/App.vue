@@ -25,11 +25,11 @@ const currentCompName = ref("Input");
 const compList = [BaseInput, BaseRadio, BaseSelect];
 const compNameList: string[] = ["Input", "Radio", "Select"];
 
-let currentCompIdx = 0;
+let compIdx = 0;
 const switchComp = () => {
-  currentCompIdx = ++currentCompIdx % compList.length;
-  currentComp.value = compList[currentCompIdx];
-  currentCompName.value = compNameList[currentCompIdx];
+  compIdx = ++compIdx % compList.length;
+  currentComp.value = compList[compIdx];
+  currentCompName.value = compNameList[compIdx];
 
 }
 </script>
