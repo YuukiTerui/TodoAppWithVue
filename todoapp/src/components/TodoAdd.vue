@@ -1,8 +1,8 @@
 <template>
     <div class="box todo-add">
-        <input type="text" id="title" class="todo-add-item" v-model="title" placeholder="タイトル" maxlength="32">
+        <base-input type="text" id="title" class="todo-add-item title" v-model="title" placeholder="タイトル" maxlength="32" />
         <textarea id="memo" class="todo-add-item" v-model="note" placeholder="メモ"></textarea>
-        <input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限">
+        <base-input type="date" id="limit" class="todo-add-item" v-model="limit" placeholder="期限" />
         <base-button type="add" size="middle"
           class="todo-add-item" 
           @click="onSubmitClick"
@@ -18,6 +18,8 @@
 import { ref, computed } from "vue";
 import type { Ref } from "vue";
 import BaseButton from "./BaseButton.vue";
+import BaseInput from "./BaseInput.vue";
+
 interface Emits {
     (event: "addNewTodo", title: Ref, note: Ref, limit: Ref): void;
 }
@@ -59,24 +61,5 @@ const onSubmitClick = () => {
     height: 50%;
 }
 
-#limit {
-    position: relative;
-}
 
-#limit::-webkit-calendar-picker-indicator {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-
-}
-
-input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
- 
-input[type=date]::-webkit-clear-button {
-    -webkit-appearance: none;
-}
 </style>
